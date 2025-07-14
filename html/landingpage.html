@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogynPay - Digital Transformation for Payment Systems</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-25px) translateX(25px); }
+            100% { transform: translateY(0px) translateX(0px); }
+        }
+        .bubble {
+            animation: float 8s ease-in-out infinite;
+        }
+        .bubble-2 { animation-delay: 3s; }
+        .bubble-3 { animation-delay: 5s; }
+
+        .feature-card-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .feature-card-dark:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-8px);
+            border-color: rgba(74, 222, 128, 0.5);
+        }
+
+        .pricing-card-dark.popular {
+            border: 2px solid #4ade80;
+            transform: scale(1.03);
+        }
+
+        .faq-item-dark {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .typing-cursor-dark {
+            display: inline-block;
+            width: 3px;
+            height: 40px;
+            background-color: #f0fdfa;
+            margin-left: 4px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white antialiased">
+    <!-- Bubbles Background -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500 rounded-full opacity-20 filter blur-3xl bubble"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500 rounded-full opacity-20 filter blur-3xl bubble bubble-2"></div>
+        <div class="absolute bottom-1/2 right-1/3 w-60 h-60 bg-green-400 rounded-full opacity-10 filter blur-2xl bubble bubble-3"></div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Header -->
+        <header class="sticky top-0 z-50 py-4 glass-effect shadow-lg" data-aos="fade-down">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="flex items-center justify-between h-16">
+                    <a href="#" class="text-2xl font-bold tracking-wider"><img src="../public/images/LogynPay.png" alt="LogynPay Logo" class="h-8"></a>
+                    
+                    <button id="mobile-menu-button" class="md:hidden text-white">
+                        <i class="ri-menu-line text-2xl"></i>
+                    </button>
+                    
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="#" class="hover:text-green-400 transition-colors">Home</a>
+                        <a href="#features" class="hover:text-green-400 transition-colors">Features</a>
+                        <a href="#pricing" class="hover:text-green-400 transition-colors">Pricing</a>
+                        <a href="#testimonials" class="hover:text-green-400 transition-colors">Testimonials</a>
+                        <a href="#faq" class="hover:text-green-400 transition-colors">FAQ</a>
+                    </nav>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="login.html" class="px-5 py-2.5 font-semibold rounded-lg hover:bg-white/10 transition-colors">Login</a>
+                        <a href="register.html" class="px-5 py-2.5 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all shadow-lg hover:shadow-green-500/50 transform hover:-translate-y-0.5">Sign Up</a>
+                    </div>
+                </div>
+                
+                <div id="mobile-menu" class="hidden md:hidden py-4 px-2 glass-effect rounded-lg shadow-xl mt-2 absolute top-full left-4 right-4">
+                    <div class="flex flex-col space-y-3">
+                        <a href="#" class="px-4 py-2 rounded-lg hover:bg-white/10">Home</a>
+                        <a href="#features" class="px-4 py-2 rounded-lg hover:bg-white/10">Features</a>
+                        <a href="#pricing" class="px-4 py-2 rounded-lg hover:bg-white/10">Pricing</a>
+                        <a href="#testimonials" class="px-4 py-2 rounded-lg hover:bg-white/10">Testimonials</a>
+                        <a href="#faq" class="px-4 py-2 rounded-lg hover:bg-white/10">FAQ</a>
+                        <div class="flex space-x-3 pt-2">
+                            <a href="login.html" class="flex-1 text-center px-4 py-2 rounded-lg border border-white/20 hover:bg-white/10">Login</a>
+                            <a href="register.html" class="flex-1 text-center px-4 py-2 rounded-lg bg-green-500 text-white hover:bg-green-600">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="py-24 md:py-32">
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white max-w-4xl mx-auto leading-tight" data-aos="fade-up">
+                    Digital Transformation for<br>
+                    <span class="text-green-400">Modern Payment Systems</span>
+                    <span class="typing-cursor-dark"></span>
+                </h1>
+                
+                <div class="w-24 h-1.5 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mt-6 rounded-full" data-aos="fade-up" data-aos-delay="200"></div>
+                
+                <p class="mt-6 text-lg text-white/70 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+                    A complete payment solution with high-level security and a seamless user experience for your business.
+                </p>
+                
+                <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="register.html" class="bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-4 px-10 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-green-500/50">
+                        <span>Get Started Free</span>
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                    <a href="#features" class="bg-transparent border-2 border-green-400 text-green-400 font-bold py-4 px-10 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 hover:bg-green-400 hover:text-gray-900">
+                        <span>Learn More</span>
+                        <i class="ri-information-line"></i>
+                    </a>
+                </div>
+                
+                <div class="mt-20 max-w-6xl mx-auto relative" data-aos="zoom-in-up" data-aos-duration="1000">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl opacity-20 blur-xl"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl glass-effect">
+                        <div class="bg-gray-800/50 h-10 flex items-center px-4">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                        </div>
+                        <img src="https://placehold.co/1200x600/0f172a/4ade80?text=LogynPay+Dashboard" alt="LogynPay Dashboard" class="w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="py-12" data-aos="fade-up">
+            <div class="container mx-auto px-4 sm:px-6">
+                <p class="text-center text-white/50 mb-8">Trusted by leading companies worldwide</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-6 items-center justify-center text-white/70">
+                    <div class="text-center text-2xl font-bold">VISA</div>
+                    <div class="text-center text-2xl font-bold">Mastercard</div>
+                    <div class="text-center text-2xl font-bold">PayPal</div>
+                    <div class="text-center text-2xl font-bold">Stripe</div>
+                    <div class="text-center text-2xl font-bold">Apple Pay</div>
+                    <div class="text-center text-2xl font-bold">Google Pay</div>
+                    <div class="text-center text-2xl font-bold">Amazon Pay</div>
+                    <div class="text-center text-2xl font-bold">Shopify</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Powerful Features</h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full mb-6"></div>
+                    <p class="text-lg text-white/70">Everything you need to manage payments efficiently and securely</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card-dark p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-6">
+                            <i class="ri-shield-check-line text-3xl text-green-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-3">Bank-Level Security</h3>
+                        <p class="text-white/70 mb-4">Advanced encryption and fraud detection to keep your transactions safe.</p>
+                        <a href="#" class="text-green-400 font-medium inline-flex items-center">Learn more <i class="ri-arrow-right-line ml-2"></i></a>
+                    </div>
+                    <div class="feature-card-dark p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-6">
+                            <i class="ri-exchange-dollar-line text-3xl text-blue-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-3">Global Payments</h3>
+                        <p class="text-white/70 mb-4">Accept payments from anywhere in the world with multi-currency support.</p>
+                        <a href="#" class="text-green-400 font-medium inline-flex items-center">Learn more <i class="ri-arrow-right-line ml-2"></i></a>
+                    </div>
+                    <div class="feature-card-dark p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-6">
+                            <i class="ri-dashboard-line text-3xl text-green-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-3">Real-Time Analytics</h3>
+                        <p class="text-white/70 mb-4">Get insights into your transactions with a comprehensive dashboard and reports.</p>
+                        <a href="#" class="text-green-400 font-medium inline-flex items-center">Learn more <i class="ri-arrow-right-line ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">What Our Clients Say</h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full mb-6"></div>
+                    <p class="text-lg text-white/70">Thousands of businesses trust LogynPay for their payment processing</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-effect p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-green-400">
+                                <img src="https://i.pravatar.cc/48?u=sarah" alt="Sarah Johnson" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Sarah Johnson</h4>
+                                <p class="text-white/70 text-sm">CEO, Tech Innovations</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 mb-4">LogynPay has transformed the way we handle payments. The platform is intuitive, secure, and their customer support is outstanding.</p>
+                        <div class="flex text-yellow-400">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <div class="glass-effect p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-green-400">
+                                <img src="https://i.pravatar.cc/48?u=michael" alt="Michael Chen" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Michael Chen</h4>
+                                <p class="text-white/70 text-sm">CFO, Global Retail</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 mb-4">Since switching to LogynPay, our payment processing fees have decreased by 22% while transaction success rates have significantly increased.</p>
+                        <div class="flex text-yellow-400">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <div class="glass-effect p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-green-400">
+                                <img src="https://i.pravatar.cc/48?u=emma" alt="Emma Rodriguez" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Emma Rodriguez</h4>
+                                <p class="text-white/70 text-sm">E-commerce Manager</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 mb-4">The analytics dashboard alone is worth it. We've gained valuable insights that have helped optimize our checkout process.</p>
+                        <div class="flex text-yellow-400">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Flexible Pricing Plans</h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full mb-6"></div>
+                    <p class="text-lg text-white/70">Choose a plan that fits your business needs. No hidden fees.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="feature-card-dark p-8 rounded-2xl flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <div>
+                            <h3 class="font-bold text-xl text-white mb-2">Starter</h3>
+                            <p class="text-white/70 mb-6">Perfect for small businesses and startups</p>
+                            <div class="mb-8"><span class="text-4xl font-bold text-white">$29</span><span class="text-white/70">/month</span></div>
+                            <ul class="space-y-4 mb-8 text-white/90">
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Up to 500 transactions/month</li>
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Basic fraud protection</li>
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Email support</li>
+                            </ul>
+                        </div>
+                        <a href="register.html" class="mt-auto w-full text-center py-3 rounded-lg font-semibold bg-white/10 border border-white/20 hover:bg-white/20 transition">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card-dark popular feature-card-dark p-8 rounded-2xl flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold py-1 px-3 rounded-full">MOST POPULAR</div>
+                        <div>
+                            <h3 class="font-bold text-xl text-white mb-2">Professional</h3>
+                            <p class="text-white/70 mb-6">Ideal for growing businesses</p>
+                            <div class="mb-8"><span class="text-4xl font-bold text-white">$79</span><span class="text-white/70">/month</span></div>
+                            <ul class="space-y-4 mb-8 text-white/90">
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Up to 5,000 transactions/month</li>
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Advanced fraud protection</li>
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>24/7 email & chat support</li>
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Advanced analytics</li>
+                            </ul>
+                        </div>
+                        <a href="register.html" class="mt-auto w-full text-center py-3 rounded-lg font-semibold bg-green-500 hover:bg-green-600 transition shadow-lg hover:shadow-green-500/50">Get Started</a>
+                    </div>
+                    
+                    <div class="feature-card-dark p-8 rounded-2xl flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                        <div>
+                            <h3 class="font-bold text-xl text-white mb-2">Enterprise</h3>
+                            <p class="text-white/70 mb-6">For large businesses with custom needs</p>
+                            <div class="mb-8"><span class="text-4xl font-bold text-white">$199</span><span class="text-white/70">/month</span></div>
+                            <ul class="space-y-4 mb-8 text-white/90">
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Unlimited transactions</li>
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Premium fraud protection</li>
+                                <li class="flex items-center"><i class="ri-check-line text-green-400 mr-2"></i>Dedicated account manager</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="mt-auto w-full text-center py-3 rounded-lg font-semibold bg-white/10 border border-white/20 hover:bg-white/20 transition">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Frequently Asked Questions</h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full mb-6"></div>
+                    <p class="text-lg text-white/70">Find answers to common questions about LogynPay</p>
+                </div>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="faq-item-dark py-6" data-aos="fade-up" data-aos-delay="100">
+                        <button class="w-full flex justify-between items-center text-left faq-question">
+                            <h4 class="font-semibold text-lg text-white">How secure is LogynPay?</h4>
+                            <i class="ri-arrow-down-s-line text-2xl transition-transform duration-300"></i>
+                        </button>
+                        <div class="overflow-hidden transition-all duration-500 ease-in-out" style="max-height: 0px;">
+                            <p class="pt-4 text-white/70">LogynPay uses bank-level security with AES-256 encryption, PCI DSS compliance, and an advanced fraud detection system. We also offer two-factor authentication and regular security audits to ensure your data is always protected.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item-dark py-6" data-aos="fade-up" data-aos-delay="200">
+                        <button class="w-full flex justify-between items-center text-left faq-question">
+                            <h4 class="font-semibold text-lg text-white">What payment methods do you support?</h4>
+                            <i class="ri-arrow-down-s-line text-2xl transition-transform duration-300"></i>
+                        </button>
+                        <div class="overflow-hidden transition-all duration-500 ease-in-out" style="max-height: 0px;">
+                            <p class="pt-4 text-white/70">We support all major credit and debit cards (Visa, Mastercard, American Express), digital wallets (Apple Pay, Google Pay), bank transfers, and over 30 alternative payment methods including PayPal, Alipay, and more.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 text-center" data-aos="zoom-in">
+                <div class="glass-effect rounded-2xl p-10 md:p-16">
+                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-6">Ready to Transform Your Payment System?</h2>
+                    <p class="text-white/80 text-lg max-w-2xl mx-auto mb-12">Join thousands of businesses processing payments securely with LogynPay.</p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="register.html" class="bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-4 px-10 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-green-500/50">
+                            <span>Get Started Free</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                        <a href="#contact" class="bg-transparent border-2 border-green-400 text-green-400 font-bold py-4 px-10 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 hover:bg-green-400 hover:text-gray-900">
+                            <span>Contact Sales</span>
+                            <i class="ri-chat-3-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="pt-16 pb-8">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                    <div class="lg:col-span-2">
+                        <a href="#" class="text-2xl font-bold tracking-wider mb-6 inline-block"><img src="../public/images/LogynPay.png" alt="LogynPay Logo" class="h-8"></a>
+                        <p class="text-white/60 mb-6 max-w-md">Transform your payment processing with our secure, reliable, and feature-rich platform designed for businesses of all sizes.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white/60 hover:text-white transition-colors"><i class="ri-facebook-fill text-xl"></i></a>
+                            <a href="#" class="text-white/60 hover:text-white transition-colors"><i class="ri-twitter-fill text-xl"></i></a>
+                            <a href="#" class="text-white/60 hover:text-white transition-colors"><i class="ri-linkedin-fill text-xl"></i></a>
+                            <a href="#" class="text-white/60 hover:text-white transition-colors"><i class="ri-instagram-line text-xl"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg text-white mb-6">Product</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">Features</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">Pricing</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">Integrations</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg text-white mb-6">Resources</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">Documentation</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">Blog</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">Support</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg text-white mb-6">Company</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">Careers</a></li>
+                            <li><a href="#" class="text-white/60 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-white/50 text-sm">© 2025 LogynPay. All rights reserved.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answerWrapper = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                const isOpening = answerWrapper.style.maxHeight === '0px' || !answerWrapper.style.maxHeight;
+                
+                document.querySelectorAll('.faq-question').forEach(b => {
+                    if (b !== button) {
+                        b.nextElementSibling.style.maxHeight = '0px';
+                        b.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+
+                if(isOpening) {
+                    answerWrapper.style.maxHeight = answerWrapper.scrollHeight + 'px';
+                    icon.classList.add('rotate-180');
+                } else {
+                    answerWrapper.style.maxHeight = '0px';
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

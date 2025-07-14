@@ -1,0 +1,36 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  invoices  Invoice[]
+  createdAt DateTime @default(now())
+}
+
+model Invoice {
+  id          String    @id @default(cuid())
+  userId      String
+  amount      Int
+  status      String    @default("PENDING") // PENDING | PAID | EXPIRED
+  xenditId    String?   // Xendit invoice ID
+  externalId  String    @unique
+  checkoutUrl String?
+  payments    Payment[]
+  user        User      @relation(fields: [userId], references: [id])
+  createdAt   DateTime  @default(now())
+}
+
+model Payment {
+  id        String   @id @default(cuid())
+  invoiceId String
+  status    String
+  paidAt    DateTime?
+  invoice   Invoice  @relation(fields: [invoiceId], references: [id])
+}
