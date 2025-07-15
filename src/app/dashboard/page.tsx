@@ -81,6 +81,26 @@ export default function Dashboard() {
     }
   };
 
+  const handleDownloadPDF = async () => {
+    try {
+      const response = await fetch('/api/invoices/export-pdf');
+      if (response.ok) {
+        const pdfData = await response.json();
+        
+        // Use simple HTML-based PDF generation
+        const { openPrintableReport } = await import('@/lib/simple-pdf-generator');
+        openPrintableReport(pdfData);
+        
+        setShowExportModal(false);
+      } else {
+        throw new Error('Failed to fetch PDF data');
+      }
+    } catch (error) {
+      console.error('Failed to export PDF:', error);
+      alert('Failed to export PDF: ' + error.message);
+    }
+  };
+
   const handleViewAllInvoices = () => {
     // Scroll to invoice list
     document.querySelector('.invoice-list')?.scrollIntoView({ behavior: 'smooth' });
@@ -347,15 +367,11 @@ export default function Dashboard() {
                   Export as CSV
                 </button>
                 <button
-                  onClick={() => {
-                    // Handle PDF export
-                    alert('PDF export feature coming soon!');
-                    setShowExportModal(false);
-                  }}
+                  onClick={handleDownloadPDF}
                   className="w-full p-3 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
                 >
-                  <i className="ri-file-pdf-line"></i>
-                  Export as PDF
+                  <i className="ri-printer-line"></i>
+                  Print / Save as PDF
                 </button>
                 <button
                   onClick={() => setShowExportModal(false)}

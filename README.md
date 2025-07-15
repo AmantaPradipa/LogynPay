@@ -60,7 +60,8 @@ npx prisma db seed     # seeds 1 demo user
 ### 5. Run Dev Server
 
 ```bash
-npm run dev
+npm run dev # Run Website
+npx prisma studio # Run DataBase Schema
 ```
 
 Visit [http://localhost:3000](http://localhost:3000)
